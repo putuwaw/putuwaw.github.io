@@ -476,3 +476,24 @@ a .fa-arrow-alt-circle-down {
     text-align: center;
   }
 }
+@media screen and (max-width: 547px) {
+  .about .content .about-img img {
+    max-width: 70%;
+  }
+  .home-img {
+    max-width: 100%;
+  }
+  .home-img img {
+    max-width: 100%;
+    height: auto;
+  }
+  .home .info {
+    text-align: center;
+  }
+  .contact .content .form-control {
+    width: 400px;
+  }
+  .contact .section-title-01 {
+    font-size: 3em;
+  }
+}
