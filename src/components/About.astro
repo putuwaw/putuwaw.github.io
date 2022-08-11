@@ -1,0 +1,62 @@
+<section class="min-h-screen pt-20 z-0" id="about">
+  <div class="flex flex-col items-center justify-center">
+    <h2 class="text-5xl lg:text-6xl font-extrabold opacity-20 title-effect">
+      About Me
+    </h2>
+    <h3 class="title relative text-2xl lg:text-3xl font-bold">About Me</h3>
+  </div>
+  <div
+    class="flex flex-col items-center justify-center text-center px-4 lg:px-0 pt-4 space-y-2 lg:flex-row lg:justify-between lg:pt-10"
+  >
+    <div class="max-w-md lg:pr-4 flex items-center justify-center lg:w-1/2">
+      <img class="rounded-xl" src="/img/sma.jpeg" alt="" />
+    </div>
+    <div class="lg:w-1/2 lg:text-left space-y-2">
+      <h3 class="text-myblack text-2xl lg:text-3xl font-bold">
+        Putu Widyantara Artanta Wibawa
+      </h3>
+      <h5 class="text-myblack text-lg lg:text-xl font-semibold">
+        Informatics '21 <span class="text-mypurple">|</span> Bali - Indonesia
+      </h5>
+      <p class="lg:pt-2 lg:text-justify">
+        I'm currently studying Informatics at the Udayana University. I'd love
+        to follow the latest technology updates and also competitive programming
+        (CP). Now, I'm interested with software development and data science.
+        Follow my social media:
+      </p>
+      <div class="text-2xl lg:text-3xl text-mypurple space-x-2">
+        <a target="_blank" href="https://www.linkedin.com/in/putuwidyantara">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a target="_blank" href="https://github.com/putuwaw">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a target="_blank" href="https://www.instagram.com/putu_waw">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .title-effect {
+    background-image: linear-gradient(to top, transparent, #0e2431);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title {
+    transform: translateY(-15px);
+  }
+  .title::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 5px;
+    border-radius: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #6a59d1;
+  }
+</style>

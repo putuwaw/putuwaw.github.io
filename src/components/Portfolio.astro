@@ -1,0 +1,124 @@
+<section class="min-h-screen pt-20 z-0" id="projects">
+  <div class="flex flex-col items-center justify-center">
+    <h2 class="text-5xl lg:text-6xl font-extrabold opacity-20 title-effect">
+      Projects
+    </h2>
+    <h3 class="title relative text-2xl lg:text-3xl font-bold">Projects</h3>
+  </div>
+  <div
+    class="pt-6 lg:pt-10 space-y-4 lg:space-y-0 flex flex-col lg:flex-row lg:flex-wrap lg:justify-between items-center justify-center px-4 lg:px-0"
+  >
+    <a
+      href="https://github.com/putuwaw/lagasin"
+      target="_blank"
+      class="photo inline-block"
+    >
+      <div class="relative lg:w-full shadow-lg">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg">
+          <img class="rounded-md" src="/img/lagasin.png" alt="Lagasin" />
+        </div>
+        <div
+          class="project absolute left-0 top-0 w-full h-full rounded-md duration-500"
+        >
+          <div class="absolute left-0 bottom-0 pl-3 pb-3">
+            <h3 class="font-semibold text-base">Lagasin</h3>
+            <p class="text-sm">Nearest Vaccine Spot Finder using NextJS</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a
+      href="https://github.com/putuwaw/d-mov1e"
+      target="_blank"
+      class="photo inline-block"
+    >
+      <div class="relative lg:w-full shadow-lg">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg">
+          <img class="rounded-md" src="/img/dmov1e.png" alt="D'MOV1E" />
+        </div>
+        <div
+          class="project absolute left-0 top-0 w-full h-full rounded-md duration-500"
+        >
+          <div class="absolute left-0 bottom-0 pl-3 pb-3">
+            <h3 class="font-semibold text-base">D'MOV1E</h3>
+            <p class="text-sm">Desktop Movie App Using GTK and CSS</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a
+      href="https://github.com/putuwaw/brilliant"
+      target="_blank"
+      class="photo inline-block lg:pt-6"
+    >
+      <div class="relative lg:w-full shadow-lg">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg">
+          <img class="rounded-md" src="/img/brilliant.png" alt="Final Project"
+          />
+        </div>
+        <div
+          class="project absolute left-0 top-0 w-full h-full rounded-md duration-500"
+        >
+          <div class="absolute left-0 bottom-0 pl-3 pb-3">
+            <h3 class="font-semibold text-base">Brilliant</h3>
+            <p class="text-sm">CRUD Book Management using CSFML</p>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a
+      href="https://github.com/putuwaw/tetris"
+      target="_blank"
+      class="photo inline-block lg:pt-6"
+    >
+      <div class="relative lg:w-full shadow-lg">
+        <div class="max-w-sm sm:max-w-md md:max-w-lg">
+          <img class="rounded-md" src="/img/tetris.png" alt="Final Project" />
+        </div>
+        <div
+          class="project absolute left-0 top-0 w-full h-full rounded-md duration-500"
+        >
+          <div class="absolute left-0 bottom-0 pl-3 pb-2">
+            <h3 class="font-semibold text-base">Tetris</h3>
+            <p class="text-sm">Tetris Game Clone using SFML</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .title-effect {
+    background-image: linear-gradient(to top, transparent, #0e2431);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title {
+    transform: translateY(-15px);
+  }
+  .title::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 5px;
+    border-radius: 2px;
+    left: 0;
+    bottom: -9px;
+    background-color: #6a59d1;
+  }
+  @media (min-width: 1024px) {
+    .photo {
+      width: 49%;
+    }
+  }
+  .project {
+    background-color: rgba(0, 0, 0, 0);
+    color: transparent;
+  }
+  .project:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+  }
+</style>

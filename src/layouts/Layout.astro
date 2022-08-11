@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>WAW | Personal Website</title>
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/d26e212e8f.js"
+      crossorigin="anonymous"
+    >
+
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="/js/script.js">
+
+    </script>
+  </body>
+  <style>
+    body {
+      background-color: #fefefe;
+    }
+  </style>
+</html>

@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Home from "../components/Home.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Portfolio from "../components/Portfolio.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <Navbar />
+  <main class="lg:px-16 xl:px-32 lg:max-w-7xl mx-auto z-0">
+    <Home><slot /></Home>
+    <About><slot /></About>
+    <Skills><slot /></Skills>
+    <Portfolio><slot /></Portfolio>
+    <Contact><slot /></Contact>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  html {
+    font-family: "Poppins", sans-serif !important;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+</style>

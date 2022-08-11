@@ -1,0 +1,42 @@
+<section class="min-h-screen pt-24" id="home">
+  <div class="flex flex-col items-center justify-between lg:flex-row-reverse">
+    <div class="flex items-center justify-center w-3/4 max-w-sm">
+      <img class="w-full" src="/img/profile.png" alt="Profile" />
+    </div>
+    <div
+      class="pt-4 lg:pt-0 flex flex-col text-center px-4 md:px-0 space-y-3 lg:text-left"
+    >
+      <h2 class="text-2xl lg:text-3xl text-slate-900 font-extrabold">
+        Putu Widyantara
+      </h2>
+      <h3 class="text-xl text-slate-700">
+        Undergraduate Student at Udayana University
+      </h3>
+      <p class="text-base text-slate-600 lg:py-2">
+        Welcome to my personal website. Feel free to explore this website!
+      </p>
+      <a class="lg:py-2" href="#about">
+        <button class="bg-mypurple text-white px-5 py-4 rounded-lg btn-home"
+          >More Information <i class="fa fa-arrow-circle-down px-0.5"></i>
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fa-arrow-circle-down {
+    animation: arrow-down ease 1s infinite alternate;
+  }
+  @keyframes arrow-down {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(5px);
+    }
+  }
+  .btn-home:hover {
+    background-color: #614fd0;
+  }
+</style>
