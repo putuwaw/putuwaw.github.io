@@ -1,30 +1,332 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
-import Home from "../components/Home.astro";
-import About from "../components/About.astro";
+import { getCollection } from "astro:content";
+
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Component Imports
+import CallToAction from "../components/CallToAction.astro";
+import Grid from "../components/Grid.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
-import Portfolio from "../components/Portfolio.astro";
-import Contact from "../components/Contact.astro";
+
+const projects = (await getCollection("project"))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 4);
+
+const awards = [
+  {
+    date: "Aug 2022",
+    title: "Belajar Machine Learning untuk Pemula",
+    loc: "Dicoding Indonesia",
+    tIcon: "certificate",
+    lIcon: "company",
+  },
+  {
+    date: "Mar 2023",
+    title: "Belajar Membuat Aplikasi Back-End untuk Pemula",
+    loc: "Dicoding Indonesia",
+    tIcon: "certificate",
+    lIcon: "company",
+  },
+  {
+    date: "Aug 2022",
+    title: "Junior Web Developer",
+    loc: "BNSP",
+    tIcon: "certificate",
+    lIcon: "company",
+  },
+  {
+    date: "Aug 2022",
+    title: "Belajar Dasar Visualisasi Data",
+    loc: "Dicoding Indonesia",
+    tIcon: "certificate",
+    lIcon: "company",
+  },
+  {
+    date: "Dec 2022",
+    title: "Second Place Coding Challenge",
+    loc: "Airlangga University",
+    tIcon: "trophy",
+    lIcon: "location",
+  },
+
+  {
+    date: "Jul 2022",
+    title: "Winner IMILKOM Competitive Programming",
+    loc: "University of North Sumatra",
+    tIcon: "trophy",
+    lIcon: "location",
+  },
+];
 ---
 
-<Layout>
-  <Navbar />
-  <main class="lg:px-16 xl:px-32 lg:max-w-7xl mx-auto z-0">
-    <Home><slot /></Home>
-    <About><slot /></About>
-    <Skills><slot /></Skills>
-    <Portfolio><slot /></Portfolio>
-    <Contact><slot /></Contact>
-  </main>
-  <Footer />
-</Layout>
+<BaseLayout>
+  <div class="stack gap-20 lg:gap-48">
+    <div class="wrapper stack gap-8 lg:gap-20">
+      <header class="hero">
+        <Hero
+          title="Hello, I am Putu Widyantara"
+          tagline="Second Year Informatics Student at Udayana University, Bali."
+          align="start"
+        >
+          <div class="roles">
+            <a href="/cv" target="_blank">
+              <Pill><Icon icon="cv" size="1.33em" /> CV</Pill>
+            </a>
+            <a href="/portfolio" target="_blank">
+              <Pill><Icon icon="portfolio" size="1.33em" /> Portfolio</Pill>
+            </a>
+          </div>
+        </Hero>
+
+        <img
+          alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+          width="480"
+          height="620"
+          src="/assets/portrait.png"
+        />
+      </header>
+
+      <Skills />
+    </div>
+
+    <main class="wrapper stack gap-20 lg:gap-48">
+      <section class="section with-background with-cta">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Recent Projects</h3>
+          <p>
+            Here are some of my projects, most of them are project that I made
+            for my college assignment.
+          </p>
+        </header>
+
+        <div class="gallery">
+          <Grid variant="offset">
+            {
+              projects.map((project) => (
+                <li>
+                  <PortfolioPreview project={project} />
+                </li>
+              ))
+            }
+          </Grid>
+        </div>
+
+        <div class="cta">
+          <CallToAction href="/project/">
+            View All
+            <Icon icon="arrow-right" size="1.2em" />
+          </CallToAction>
+        </div>
+      </section>
+
+      <section class="section with-background bg-variant">
+        <header class="section-header stack gap-2 lg:gap-4">
+          <h3>Licenses & Awards</h3>
+          <p>
+            I have been fortunate enough to recieve some license and awards from
+            both government agencies and private institutions.
+          </p>
+        </header>
+
+        <div class="gallery">
+          <Grid variant="small">
+            {
+              awards.map((brand) => (
+                <li class="mention-card">
+                  <div class="content-card">
+                    <p>
+                      <Icon icon="calendar" size="1.33em" /> {brand["date"]}
+                    </p>
+                    <p>
+                      {brand["tIcon"] == "trophy" ? (
+                        <Icon icon="trophy" size="1.33em" />
+                      ) : (
+                        <Icon icon="certificate" size="1.33em" />
+                      )}{" "}
+                      {brand["title"]}
+                    </p>
+                    <p>
+                      {brand["lIcon"] == "location" ? (
+                        <Icon icon="location" size="1.33em" />
+                      ) : (
+                        <Icon icon="company" size="1.33em" />
+                      )}
+                      {brand["loc"]}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
+          </Grid>
+        </div>
+      </section>
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
 
 <style>
-  html {
-    font-family: "Poppins", sans-serif !important;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  a {
+    text-decoration: none;
+  }
+  /* .content-card {
+    padding: 0 1rem;
+  }
+  .content-card p {
+    padding: 0.1rem 0;
+  } */
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .roles {
+    display: none;
+  }
+
+  .hero img {
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (min-width: 50em) {
+    .hero {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      padding-inline: 2.5rem;
+      gap: 3.75rem;
+    }
+
+    .roles {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .hero img {
+      aspect-ratio: 3 / 4;
+      border-radius: 4.5rem;
+      object-fit: cover;
+    }
+  }
+
+  /* ====================================================== */
+
+  .section {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .with-background {
+    position: relative;
+  }
+
+  .with-background::before {
+    --hero-bg: var(--bg-image-subtle-2);
+
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    width: 100vw;
+    aspect-ratio: calc(2.25 / var(--bg-scale));
+    top: 0;
+    transform: translateY(-75%) translateX(-50%);
+    background: url("/assets/backgrounds/noise.png") top center/220px repeat,
+      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+      var(--gray-999);
+    background-blend-mode: overlay, normal, normal, normal;
+    mix-blend-mode: var(--bg-blend-mode);
+    z-index: -1;
+  }
+
+  .with-background.bg-variant::before {
+    --hero-bg: var(--bg-image-subtle-1);
+  }
+
+  .section-header {
+    justify-self: center;
+    text-align: center;
+    max-width: 50ch;
+    font-size: var(--text-md);
+    color: var(--gray-300);
+  }
+
+  .section-header h3 {
+    font-size: var(--text-2xl);
+  }
+
+  @media (min-width: 50em) {
+    .section {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+      gap: 5rem;
+    }
+
+    .section.with-cta {
+      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
+    }
+
+    .section-header {
+      grid-area: header;
+      font-size: var(--text-lg);
+    }
+
+    .section-header h3 {
+      font-size: var(--text-4xl);
+    }
+
+    .with-cta .section-header {
+      justify-self: flex-start;
+      text-align: left;
+    }
+
+    .gallery {
+      grid-area: gallery;
+    }
+
+    .cta {
+      grid-area: cta;
+    }
+  }
+
+  /* ====================================================== */
+
+  .mention-card {
+    display: flex;
+    height: auto;
+    justify-content: start;
+    align-items: center;
+    text-align: left;
+    border: 1px solid var(--gray-800);
+    border-radius: 1.5rem;
+    color: var(--gray-300);
+    background: var(--gradient-subtle);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem;
+  }
+
+  @media (min-width: 50em) {
+    .mention-card {
+      border-radius: 1.5rem;
+      height: 9.5rem;
+      padding: 1rem 2.5rem;
+    }
+    .mention-card p {
+      padding: 0.25rem 0;
+    }
   }
 </style>
